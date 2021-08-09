@@ -11,6 +11,7 @@ class Time {
     Time& operator-=(const Time &t);
     bool is_equal_to(const Time &t) const;
     bool is_smaller_than(const Time &t) const;
+    void make_valid();
     void show(std::ostream &stream = std::cout) const;
 
     private :
