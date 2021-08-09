@@ -17,7 +17,7 @@ class Time {
     void make_valid();
     void show(std::ostream &stream = std::cout) const;
 
-    private :
+    private:
 
     int m_hours;
     int m_minutes;
