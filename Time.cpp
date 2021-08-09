@@ -39,6 +39,18 @@ Time& Time::operator+=(Time const &t) {
     return(*this);
 }
 
+Time& Time::operator-=(Time const &t) {
+    m_seconds -= t.m_seconds;
+    m_minutes -= t.m_minutes;
+    m_hours -= t.m_hours;
+
+    if (m_hours < 0)    { m_hours = 0; }
+    if (m_minutes < 0)  { m_minutes = 0; }
+    if (m_seconds < 0)  { m_seconds = 0; }
+
+    return(*this);
+}
+
 // CONSTANT METHODS
 void Time::show() const {
     std::cout << std::setfill('0') << std::setw(2) << m_hours << ":";
@@ -52,5 +64,11 @@ void Time::show() const {
 Time operator+(const Time &a, const Time &b) {
     Time temp(a);
     temp += b;
+    return(temp);
+}
+
+Time operator-(const Time &a, const Time &b) {
+    Time temp(a);
+    temp -= b;
     return(temp);
 }

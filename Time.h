@@ -6,6 +6,7 @@ class Time {
 
     Time(int hours = 0, int minutes = 0, int seconds = 0);
     Time& operator+=(const Time &t);
+    Time& operator-=(const Time &t);
     void show() const;
 
     private :
@@ -16,5 +17,6 @@ class Time {
 };
 
 Time operator+(const Time &a, const Time &b);
+Time operator-(const Time &a, const Time &b);
 
 #endif // TIME_H_INCLUDED
