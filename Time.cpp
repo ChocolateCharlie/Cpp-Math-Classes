@@ -1,9 +1,14 @@
+#include <iomanip>
 #include <iostream>
 
 #include "Time.h"
 
 // CONSTRUCTOR
 Time::Time(int hours, int minutes, int seconds) : m_hours(hours), m_minutes(minutes), m_seconds(seconds) {
+    if (m_seconds < 0)  { m_seconds = 0; }
+    if (m_minutes < 0)  { m_minutes = 0; }
+    if (m_hours < 0)    { m_hours = 0; }
+
     if (m_seconds >= 60) {
         m_minutes += m_seconds / 60;
         m_seconds %= 60;
@@ -36,7 +41,9 @@ Time& Time::operator+=(Time const &t) {
 
 // CONSTANT METHODS
 void Time::show() const {
-    std::cout << m_hours << ":" << m_minutes << ":" << m_seconds;
+    std::cout << std::setfill('0') << std::setw(2) << m_hours << ":";
+    std::cout << std::setfill('0') << std::setw(2) << m_minutes << ":";
+    std::cout << std::setfill('0') << std::setw(2) << m_seconds;
 }
 
 /* ---------- OUT OF CLASS ---------- */
