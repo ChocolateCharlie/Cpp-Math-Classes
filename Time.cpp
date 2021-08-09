@@ -56,6 +56,10 @@ bool Time::is_equal_to(const Time &t) const {
     return(m_hours == t.m_hours && m_minutes == t.m_minutes && m_seconds == t.m_seconds);
 }
 
+bool Time::is_smaller_than(const Time &t) const {
+    return(m_hours < t.m_hours || (m_hours == t.m_hours && (m_minutes < t.m_minutes || (m_minutes == t.m_minutes && m_seconds < t.m_seconds))));
+}
+
 void Time::show() const {
     std::cout << std::setfill('0') << std::setw(2) << m_hours << ":";
     std::cout << std::setfill('0') << std::setw(2) << m_minutes << ":";
@@ -71,6 +75,22 @@ bool operator==(const Time &a, const Time &b) {
 
 bool operator!=(const Time &a, const Time &b) {
     return(! a.is_equal_to(b));
+}
+
+bool operator<(const Time &a, const Time &b) {
+    return(a.is_smaller_than(b));
+}
+
+bool operator<=(const Time &a, const Time &b) {
+    return(a.is_smaller_than(b) || a.is_equal_to(b));
+}
+
+bool operator>(const Time &a, const Time &b) {
+    return(b.is_smaller_than(a));
+}
+
+bool operator>=(const Time &a, const Time &b) {
+    return(b.is_smaller_than(a) || b.is_equal_to(a));
 }
 
 Time operator+(const Time &a, const Time &b) {

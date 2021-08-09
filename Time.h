@@ -8,6 +8,7 @@ class Time {
     Time& operator+=(const Time &t);
     Time& operator-=(const Time &t);
     bool is_equal_to(const Time &t) const;
+    bool is_smaller_than(const Time &t) const;
     void show() const;
 
     private :
@@ -19,6 +20,11 @@ class Time {
 
 bool operator==(const Time &a, const Time &b);
 bool operator!=(const Time &a, const Time &b);
+bool operator< (const Time &a, const Time &b);
+bool operator<=(const Time &a, const Time &b);
+bool operator> (const Time &a, const Time &b);
+bool operator<=(const Time &a, const Time &b);
+
 Time operator+(const Time &a, const Time &b);
 Time operator-(const Time &a, const Time &b);
 
