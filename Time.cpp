@@ -9,7 +9,7 @@ Time::Time(int hours, int minutes, int seconds) : m_hours(hours), m_minutes(minu
 }
 
 // OPERATOR METHODS
-Time& Time::operator+=(Time const &t) {
+Time& Time::operator+=(const Time &t) {
     m_seconds += t.m_seconds;
     m_minutes += t.m_minutes;
     m_hours += t.m_hours;
@@ -18,10 +18,37 @@ Time& Time::operator+=(Time const &t) {
     return(*this);
 }
 
-Time& Time::operator-=(Time const &t) {
+Time& Time::operator-=(const Time &t) {
     m_seconds -= t.m_seconds;
     m_minutes -= t.m_minutes;
     m_hours -= t.m_hours;
+    make_valid();
+
+    return(*this);
+}
+
+Time& Time::operator*=(const int n) {
+    m_seconds *= n;
+    m_minutes *= n;
+    m_hours *= n;
+    make_valid();
+
+    return(*this);
+}
+
+Time& Time::operator/=(const int n) {
+    m_seconds /= n;
+    m_minutes /= n;
+    m_hours /= n;
+    make_valid();
+
+    return(*this);
+}
+
+Time& Time::operator%=(const int n) {
+    m_seconds %= n;
+    m_minutes %= n;
+    m_hours %= n;
     make_valid();
 
     return(*this);

@@ -9,6 +9,9 @@ class Time {
     Time(int hours = 0, int minutes = 0, int seconds = 0);
     Time& operator+=(const Time &t);
     Time& operator-=(const Time &t);
+    Time& operator*=(const int n);  // Multiplies hours, minutes and seconds by n
+    Time& operator/=(const int n);  // Divides hours, minutes and seconds by n
+    Time& operator%=(const int n);  // Moduloes hours, minutes and seconds by n
     bool is_equal_to(const Time &t) const;
     bool is_smaller_than(const Time &t) const;
     void make_valid();
