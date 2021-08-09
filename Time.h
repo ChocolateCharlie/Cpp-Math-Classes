@@ -7,6 +7,7 @@ class Time {
     Time(int hours = 0, int minutes = 0, int seconds = 0);
     Time& operator+=(const Time &t);
     Time& operator-=(const Time &t);
+    bool is_equal_to(const Time &t) const;
     void show() const;
 
     private :
@@ -16,6 +17,8 @@ class Time {
     int m_seconds;
 };
 
+bool operator==(const Time &a, const Time &b);
+bool operator!=(const Time &a, const Time &b);
 Time operator+(const Time &a, const Time &b);
 Time operator-(const Time &a, const Time &b);
 

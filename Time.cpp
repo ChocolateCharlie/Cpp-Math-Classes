@@ -52,6 +52,10 @@ Time& Time::operator-=(Time const &t) {
 }
 
 // CONSTANT METHODS
+bool Time::is_equal_to(const Time &t) const {
+    return(m_hours == t.m_hours && m_minutes == t.m_minutes && m_seconds == t.m_seconds);
+}
+
 void Time::show() const {
     std::cout << std::setfill('0') << std::setw(2) << m_hours << ":";
     std::cout << std::setfill('0') << std::setw(2) << m_minutes << ":";
@@ -61,6 +65,14 @@ void Time::show() const {
 /* ---------- OUT OF CLASS ---------- */
 
 // OPERATOR FUNCTIONS
+bool operator==(const Time &a, const Time &b) {
+    return(a.is_equal_to(b));
+}
+
+bool operator!=(const Time &a, const Time &b) {
+    return(! a.is_equal_to(b));
+}
+
 Time operator+(const Time &a, const Time &b) {
     Time temp(a);
     temp += b;
