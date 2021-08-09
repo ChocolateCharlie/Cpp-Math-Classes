@@ -1,6 +1,8 @@
 #ifndef TIME_H_INCLUDED
 #define TIME_H_INCLUDED
 
+#include <iostream>
+
 class Time {
     public:
 
@@ -9,7 +11,7 @@ class Time {
     Time& operator-=(const Time &t);
     bool is_equal_to(const Time &t) const;
     bool is_smaller_than(const Time &t) const;
-    void show() const;
+    void show(std::ostream &stream = std::cout) const;
 
     private :
 
@@ -24,6 +26,8 @@ bool operator< (const Time &a, const Time &b);
 bool operator<=(const Time &a, const Time &b);
 bool operator> (const Time &a, const Time &b);
 bool operator<=(const Time &a, const Time &b);
+
+std::ostream& operator<<(std::ostream &stream, const Time &t);
 
 Time operator+(const Time &a, const Time &b);
 Time operator-(const Time &a, const Time &b);

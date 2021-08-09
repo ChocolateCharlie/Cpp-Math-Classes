@@ -60,10 +60,10 @@ bool Time::is_smaller_than(const Time &t) const {
     return(m_hours < t.m_hours || (m_hours == t.m_hours && (m_minutes < t.m_minutes || (m_minutes == t.m_minutes && m_seconds < t.m_seconds))));
 }
 
-void Time::show() const {
-    std::cout << std::setfill('0') << std::setw(2) << m_hours << ":";
-    std::cout << std::setfill('0') << std::setw(2) << m_minutes << ":";
-    std::cout << std::setfill('0') << std::setw(2) << m_seconds;
+void Time::show(std::ostream &stream) const {
+    stream << std::setfill('0') << std::setw(2) << m_hours << ":";
+    stream << std::setfill('0') << std::setw(2) << m_minutes << ":";
+    stream << std::setfill('0') << std::setw(2) << m_seconds;
 }
 
 /* ---------- OUT OF CLASS ---------- */
@@ -91,6 +91,11 @@ bool operator>(const Time &a, const Time &b) {
 
 bool operator>=(const Time &a, const Time &b) {
     return(b.is_smaller_than(a) || b.is_equal_to(a));
+}
+
+std::ostream& operator<<(std::ostream &stream, const Time &t) {
+    t.show(stream);
+    return(stream);
 }
 
 Time operator+(const Time &a, const Time &b) {
