@@ -1,28 +1,34 @@
+#include "basic-functions.h"
 #include "Rational.h"
 
 // CONSTRUCTOR
 Rational::Rational(int numerator, int denominator) : m_numerator(numerator), m_denominator(denominator) {
     if (m_denominator == 0) { m_denominator = 1; }  // Arbitrarily changes to a valid denominator
+    to_canonical();
 }
 
 // OPERATOR METHODS
 Rational& Rational::operator+=(const int n) {
     m_numerator += n * (m_denominator > 0 ? m_denominator : m_denominator * -1);
+    to_canonical();
     return(*this);
 }
 
 Rational& Rational::operator-=(const int n) {
     m_numerator -= n * (m_denominator > 0 ? m_denominator : m_denominator * -1);
+    to_canonical();
     return(*this);
 }
 
 Rational& Rational::operator*=(const int n) {
     m_numerator *= n;
+    to_canonical();
     return(*this);
 }
 
 Rational& Rational::operator/=(const int n) {
     if (n != 0) { m_numerator /= n; }
+    to_canonical();
     return(*this);
 }
 
@@ -42,6 +48,17 @@ void Rational::show(std::ostream &stream) const {
             stream << "/" << (m_denominator > 0 ? m_denominator : m_denominator * -1);  // Print absolute value
         }
     }
+}
+
+// MORE METHODS
+void Rational::to_canonical() {
+    int d;
+    do {
+        d = gcd(max((m_numerator > 0 ? m_numerator : m_numerator * -1), (m_denominator > 0 ? m_denominator : m_denominator * -1)),
+                min((m_numerator > 0 ? m_numerator : m_numerator * -1), (m_denominator > 0 ? m_denominator : m_denominator * -1)));
+        m_numerator /= d;
+        m_denominator /= d;
+    } while(d != 1);
 }
 
 /* ---------- OUT OF CLASS ---------- */

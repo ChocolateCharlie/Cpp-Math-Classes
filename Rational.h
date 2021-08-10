@@ -12,6 +12,8 @@ class Rational {
     Rational& operator*=(const int n);
     Rational& operator/=(const int n);
     void show(std::ostream &stream = std::cout) const;
+    void to_canonical();
+    // int to_decimal();
 
     private:
 
