@@ -7,6 +7,10 @@ class Rational {
     public:
 
     Rational(int numerator, int denominator = 1);
+    Rational& operator+=(const int n);
+    Rational& operator-=(const int n);
+    Rational& operator*=(const int n);
+    Rational& operator/=(const int n);
     void show(std::ostream &stream = std::cout) const;
 
     private:

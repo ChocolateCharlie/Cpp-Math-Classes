@@ -5,6 +5,27 @@ Rational::Rational(int numerator, int denominator) : m_numerator(numerator), m_d
     if (m_denominator == 0) { m_denominator = 1; }  // Arbitrarily changes to a valid denominator
 }
 
+// OPERATOR METHODS
+Rational& Rational::operator+=(const int n) {
+    m_numerator += n * (m_denominator > 0 ? m_denominator : m_denominator * -1);
+    return(*this);
+}
+
+Rational& Rational::operator-=(const int n) {
+    m_numerator -= n * (m_denominator > 0 ? m_denominator : m_denominator * -1);
+    return(*this);
+}
+
+Rational& Rational::operator*=(const int n) {
+    m_numerator *= n;
+    return(*this);
+}
+
+Rational& Rational::operator/=(const int n) {
+    if (n != 0) { m_numerator /= n; }
+    return(*this);
+}
+
 // CONSTANT METHODS
 void Rational::show(std::ostream &stream) const {
     // Checks if the number is simply zero
