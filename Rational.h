@@ -22,4 +22,9 @@ class Rational {
 
 std::ostream& operator<<(std::ostream &stream, const Rational &r);
 
+Rational operator+(const Rational &r, const int &n);
+Rational operator-(const Rational &r, const int &n);
+Rational operator*(const Rational &r, const int &n);
+Rational operator/(const Rational &r, const int &n);
+
 #endif // RATIONAL_H_INCLUDED

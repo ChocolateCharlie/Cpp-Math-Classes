@@ -51,3 +51,27 @@ std::ostream& operator<<(std::ostream &stream, const Rational &r) {
     r.show(stream);
     return(stream);
 }
+
+Rational operator+(const Rational &r, const int &n) {
+    Rational temp(r);
+    temp += n;
+    return(temp);
+}
+
+Rational operator-(const Rational &r, const int &n) {
+    Rational temp(r);
+    temp -= n;
+    return(temp);
+}
+
+Rational operator*(const Rational &r, const int &n) {
+    Rational temp(r);
+    temp *= n;
+    return(temp);
+}
+
+Rational operator/(const Rational &r, const int &n) {
+    Rational temp(r);
+    temp *= n;
+    return(temp);
+}
