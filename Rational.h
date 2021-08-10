@@ -24,6 +24,11 @@ class Rational {
 
 };
 
+bool operator==(const Rational &r, const int &n);
+bool operator==(const Rational &a, const Rational &b);
+bool operator!=(const Rational &r, const int &n);
+bool operator!=(const Rational &a, const Rational &b);
+
 std::ostream& operator<<(std::ostream &stream, const Rational &r);
 
 Rational operator+(const Rational &r, const int &n);

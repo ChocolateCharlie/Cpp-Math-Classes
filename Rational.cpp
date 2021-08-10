@@ -68,6 +68,22 @@ void Rational::to_canonical() {
 /* ---------- OUT OF CLASS ---------- */
 
 // OPERATOR FUNCTIONS
+bool operator==(const Rational &r, const int &n) {
+    return(r.is_equal_to(n));
+}
+
+bool operator==(const Rational &a, const Rational &b) {
+    return(a.is_equal_to(b));
+}
+
+bool operator!=(const Rational &r, const int &n) {
+    return(r.is_equal_to(n));
+}
+
+bool operator!=(const Rational &a, const Rational &b) {
+    return(! a.is_equal_to(b));
+}
+
 std::ostream& operator<<(std::ostream &stream, const Rational &r) {
     r.show(stream);
     return(stream);
