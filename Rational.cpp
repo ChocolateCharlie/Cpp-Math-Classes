@@ -12,25 +12,25 @@ Rational::Rational(int numerator, int denominator) : m_numerator(numerator), m_d
 }
 
 // OPERATOR METHODS
-Rational& Rational::operator+=(const int n) {
+Rational& Rational::operator+=(const int &n) {
     m_numerator += n * m_denominator;
     to_canonical();
     return(*this);
 }
 
-Rational& Rational::operator-=(const int n) {
+Rational& Rational::operator-=(const int &n) {
     m_numerator -= n * m_denominator;
     to_canonical();
     return(*this);
 }
 
-Rational& Rational::operator*=(const int n) {
+Rational& Rational::operator*=(const int &n) {
     m_numerator *= n;
     to_canonical();
     return(*this);
 }
 
-Rational& Rational::operator/=(const int n) {
+Rational& Rational::operator/=(const int &n) {
     if (n != 0) { m_numerator /= n; }
     to_canonical();
     return(*this);

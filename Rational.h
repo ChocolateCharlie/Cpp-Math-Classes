@@ -7,10 +7,10 @@ class Rational {
     public:
 
     Rational(int numerator, int denominator = 1);
-    Rational& operator+=(const int n);
-    Rational& operator-=(const int n);
-    Rational& operator*=(const int n);
-    Rational& operator/=(const int n);
+    Rational& operator+=(const int &n);
+    Rational& operator-=(const int &n);
+    Rational& operator*=(const int &n);
+    Rational& operator/=(const int &n);
     bool is_equal_to(const int &n) const;
     bool is_equal_to(const Rational &r) const;
     void show(std::ostream &stream = std::cout) const;

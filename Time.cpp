@@ -27,7 +27,7 @@ Time& Time::operator-=(const Time &t) {
     return(*this);
 }
 
-Time& Time::operator*=(const int n) {
+Time& Time::operator*=(const int &n) {
     m_seconds *= n;
     m_minutes *= n;
     m_hours *= n;
@@ -36,7 +36,7 @@ Time& Time::operator*=(const int n) {
     return(*this);
 }
 
-Time& Time::operator/=(const int n) {
+Time& Time::operator/=(const int &n) {
     m_seconds /= n;
     m_minutes /= n;
     m_hours /= n;
@@ -45,7 +45,7 @@ Time& Time::operator/=(const int n) {
     return(*this);
 }
 
-Time& Time::operator%=(const int n) {
+Time& Time::operator%=(const int &n) {
     m_seconds %= n;
     m_minutes %= n;
     m_hours %= n;
