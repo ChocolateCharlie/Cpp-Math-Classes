@@ -23,7 +23,7 @@ class Rational {
     Rational reciprocal() const;    // Multiplicative inverse ; WARNING : Returns 1 when passing 0 (multiplicative inverse does not exist)
     void show(std::ostream &stream = std::cout) const;
     void to_canonical();
-    // int to_decimal();
+    float to_decimal() const;
 
     private:
 

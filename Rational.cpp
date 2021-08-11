@@ -104,6 +104,10 @@ void Rational::show(std::ostream &stream) const {
     }
 }
 
+float Rational::to_decimal() const {
+    return((float)m_numerator / (float)m_denominator);
+}
+
 // MORE METHODS
 void Rational::to_canonical() {
     int d;
