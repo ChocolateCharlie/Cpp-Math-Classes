@@ -45,6 +45,14 @@ bool Rational::is_equal_to(const Rational &r) const {
     return(m_numerator == r.m_numerator && m_denominator == r.m_denominator);
 }
 
+bool Rational::is_smaller_than(const int &n) const {
+    return(m_numerator < n * m_denominator);
+}
+
+bool Rational::is_smaller_than(const Rational &r) const {
+    return(m_numerator * r.m_denominator < r.m_numerator * m_denominator);
+}
+
 void Rational::show(std::ostream &stream) const {
     if (!m_numerator)   { stream << "0"; }  // Zero
     else {
