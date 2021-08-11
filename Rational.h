@@ -10,6 +10,7 @@ class Rational {
     Rational& operator+=(const int &n);
     Rational& operator+=(const Rational &r);
     Rational& operator-=(const int &n);
+    Rational& operator-=(const Rational &r);
     Rational& operator*=(const int &n);
     Rational& operator/=(const int &n);
     bool is_equal_to(const int &n) const;
@@ -45,6 +46,7 @@ std::ostream& operator<<(std::ostream &stream, const Rational &r);
 Rational operator+(const Rational &r, const int &n);
 Rational operator+(const Rational &a, const Rational &b);
 Rational operator-(const Rational &r, const int &n);
+Rational operator-(const Rational &a, const Rational &b);
 Rational operator*(const Rational &r, const int &n);
 Rational operator/(const Rational &r, const int &n);
 
