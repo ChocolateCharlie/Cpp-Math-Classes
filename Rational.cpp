@@ -92,6 +92,38 @@ bool operator!=(const Rational &a, const Rational &b) {
     return(! a.is_equal_to(b));
 }
 
+bool operator< (const Rational &r, const int &n) {
+    return(r.is_smaller_than(n));
+}
+
+bool operator< (const Rational &a, const Rational &b) {
+    return(a.is_smaller_than(b));
+}
+
+bool operator<=(const Rational &r, const int &n) {
+    return(r.is_smaller_than(n) || r.is_equal_to(n));
+}
+
+bool operator<=(const Rational &a, const Rational &b) {
+    return(a.is_smaller_than(b) || a.is_equal_to(b));
+}
+
+bool operator> (const Rational &r, const int &n) {
+    return(!r.is_smaller_than(n) && !r.is_equal_to(n));
+}
+
+bool operator> (const Rational &a, const Rational &b) {
+    return(b.is_smaller_than(a));
+}
+
+bool operator>=(const Rational &r, const int &n) {
+    return(!r.is_smaller_than(n));
+}
+
+bool operator>=(const Rational &a, const Rational &b) {
+    return(b.is_smaller_than(a) || b.is_equal_to(a));
+}
+
 std::ostream& operator<<(std::ostream &stream, const Rational &r) {
     r.show(stream);
     return(stream);
