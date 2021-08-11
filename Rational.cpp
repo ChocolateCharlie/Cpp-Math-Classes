@@ -74,6 +74,16 @@ bool Rational::is_smaller_than(const Rational &r) const {
     return(m_numerator * r.m_denominator < r.m_numerator * m_denominator);
 }
 
+Rational Rational::opposite() const {
+    Rational opp(m_numerator * (-1), m_denominator);
+    return(opp);
+}
+
+Rational Rational::reciprocal() const {
+    Rational rec(m_denominator, m_numerator);
+    return(rec);
+}
+
 void Rational::show(std::ostream &stream) const {
     if (!m_numerator)   { stream << "0"; }  // Zero
     else {

@@ -18,6 +18,8 @@ class Rational {
     bool is_equal_to(const Rational &r) const;
     bool is_smaller_than(const int &n) const;
     bool is_smaller_than(const Rational &r) const;
+    Rational opposite() const;      // Additive inverse
+    Rational reciprocal() const;    // Multiplicative inverse ; WARNING : returns 1 when passing 0 (multiplicative inverse does not exist)
     void show(std::ostream &stream = std::cout) const;
     void to_canonical();
     // int to_decimal();
