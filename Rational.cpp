@@ -57,6 +57,17 @@ Rational& Rational::operator/=(const int &n) {
     return(*this);
 }
 
+Rational& Rational::operator/=(const Rational &r) {
+    /* WARNING: If the denominator turns out to be invalid (that is 0),
+    ** this function arbitrarily changes it to a valid denominator (that is 1).
+    ** As a result, division of a Rational number by 0 will fail and return the same, unchanged number. */
+    Rational temp(m_numerator * r.m_denominator, m_denominator * r.m_numerator);
+    to_canonical();
+    m_numerator = temp.m_numerator;
+    m_denominator = temp.m_denominator;
+    return(*this);
+}
+
 // CONSTANT METHODS
 bool Rational::is_equal_to(const int &n) const {
     return(m_denominator == 1 && m_numerator == n);
@@ -199,5 +210,11 @@ Rational operator*(const Rational &a, const Rational &b) {
 Rational operator/(const Rational &r, const int &n) {
     Rational temp(r);
     temp /= n;
+    return(temp);
+}
+
+Rational operator/(const Rational &a, const Rational &b) {
+    Rational temp(a);
+    temp /= b;
     return(temp);
 }
