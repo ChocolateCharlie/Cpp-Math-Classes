@@ -18,6 +18,13 @@ Rational& Rational::operator+=(const int &n) {
     return(*this);
 }
 
+Rational& Rational::operator+=(const Rational &r) {
+    m_numerator = m_numerator * r.m_denominator + r.m_numerator * m_denominator;
+    m_denominator *= r.m_denominator;
+    to_canonical();
+    return(*this);
+}
+
 Rational& Rational::operator-=(const int &n) {
     m_numerator -= n * m_denominator;
     to_canonical();
@@ -132,6 +139,12 @@ std::ostream& operator<<(std::ostream &stream, const Rational &r) {
 Rational operator+(const Rational &r, const int &n) {
     Rational temp(r);
     temp += n;
+    return(temp);
+}
+
+Rational operator+(const Rational &a, const Rational &b) {
+    Rational temp(a);
+    temp += b;
     return(temp);
 }
 

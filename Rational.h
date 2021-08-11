@@ -8,6 +8,7 @@ class Rational {
 
     Rational(int numerator, int denominator = 1);
     Rational& operator+=(const int &n);
+    Rational& operator+=(const Rational &r);
     Rational& operator-=(const int &n);
     Rational& operator*=(const int &n);
     Rational& operator/=(const int &n);
@@ -42,6 +43,7 @@ bool operator>=(const Rational &a, const Rational &b);
 std::ostream& operator<<(std::ostream &stream, const Rational &r);
 
 Rational operator+(const Rational &r, const int &n);
+Rational operator+(const Rational &a, const Rational &b);
 Rational operator-(const Rational &r, const int &n);
 Rational operator*(const Rational &r, const int &n);
 Rational operator/(const Rational &r, const int &n);
