@@ -109,6 +109,6 @@ Rational operator*(const Rational &r, const int &n) {
 
 Rational operator/(const Rational &r, const int &n) {
     Rational temp(r);
-    temp *= n;
+    temp /= n;
     return(temp);
 }
