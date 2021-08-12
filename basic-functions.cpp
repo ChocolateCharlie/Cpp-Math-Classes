@@ -1,3 +1,7 @@
+int abs(int n) {
+    return(n > 0 ? n : n * (-1));
+}
+
 int gcd(int a, int b) {
     return(b ? gcd(b, a % b) : a);
 }
