@@ -1,6 +1,6 @@
 #include <stdexcept>
 
-#include "basic-functions.h"
+#include "Basic.h"
 #include "Rational.h"
 
 // CONSTRUCTOR
@@ -110,8 +110,8 @@ void Rational::to_canonical() {
         m_denominator *= -1;
     }
     // Simplify by the greatest common divisor
-    int d = Basic::gcd(Basic::max(Basic::abs(m_numerator), m_denominator),
-                       Basic::min(Basic::abs(m_numerator), m_denominator));
+    int d = Basic<int>::gcd(Basic<int>::max(Basic<int>::abs(m_numerator), m_denominator),
+                            Basic<int>::min(Basic<int>::abs(m_numerator), m_denominator));
     m_numerator /= d;
     m_denominator /= d;
 }
