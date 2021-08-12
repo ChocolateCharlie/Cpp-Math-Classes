@@ -6,17 +6,17 @@
 class Rational {
     public:
 
-    Rational(int numerator = 0, int denominator = 1);
+    Rational(int numerator = 0, int denominator = 1);   // WARNING: Throws a domain_error exception if denominator is 0
     Rational& operator+=(const int &n);
     Rational& operator+=(const Rational &r);
     Rational& operator-=(const int &n);
     Rational& operator-=(const Rational &r);
     Rational& operator*=(const int &n);
     Rational& operator*=(const Rational &r);
-    Rational& operator/=(const int &n);
-    Rational& operator/=(const Rational &r);    // WARNING: Dividing by 0 might lead to unexpected behavior
+    Rational& operator/=(const int &n);         // WARNING : Throws a domain_error exception when trying to divide by 0
+    Rational& operator/=(const Rational &r);    // WARNING: Throws a domain_error exception when trying to divide by 0
     Rational opposite() const;      // Additive inverse
-    Rational reciprocal() const;    // Multiplicative inverse ; WARNING : Returns 1 when passing 0 (multiplicative inverse does not exist)
+    Rational reciprocal() const;    // Multiplicative inverse ; WARNING: Throws a domain_error exception when trying to compute reciprocal of 0
     float to_decimal() const;
 
     private:
@@ -52,7 +52,7 @@ Rational operator-(const Rational &r, const int &n);
 Rational operator-(const Rational &a, const Rational &b);
 Rational operator*(const Rational &r, const int &n);
 Rational operator*(const Rational &a, const Rational &b);
-Rational operator/(const Rational &r, const int &n);
-Rational operator/(const Rational &a, const Rational &b);
+Rational operator/(const Rational &r, const int &n);        // WARNING: Throws a domain_error exception when trying to divide by 0
+Rational operator/(const Rational &a, const Rational &b);   // WARNING: Throws a domain_error exception when trying to divide by 0
 
 #endif // RATIONAL_H_INCLUDED

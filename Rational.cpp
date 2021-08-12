@@ -1,9 +1,11 @@
+#include <stdexcept>
+
 #include "basic-functions.h"
 #include "Rational.h"
 
 // CONSTRUCTOR
 Rational::Rational(int numerator, int denominator) : m_numerator(numerator), m_denominator(denominator) {
-    if (m_denominator == 0) { m_denominator = 1; }  // Arbitrarily changes to a valid denominator
+    if (m_denominator == 0) { throw std::domain_error("Denominator cannot be zero."); }
     to_canonical();
 }
 
@@ -48,15 +50,13 @@ Rational& Rational::operator*=(const Rational &r) {
 }
 
 Rational& Rational::operator/=(const int &n) {
-    if (n != 0) { m_numerator /= n; }
+    if (n == 0) { throw std::domain_error("Cannot divide by zero."); }
+    m_numerator /= n;
     to_canonical();
     return(*this);
 }
 
 Rational& Rational::operator/=(const Rational &r) {
-    /* WARNING: If the denominator turns out to be invalid (that is 0),
-    ** this function arbitrarily changes it to a valid denominator (that is 1).
-    ** As a result, division of a Rational number by 0 will fail and return the same, unchanged number. */
     Rational temp(m_numerator * r.m_denominator, m_denominator * r.m_numerator);
     to_canonical();
     m_numerator = temp.m_numerator;
