@@ -1,7 +1,7 @@
 # Math Classes (C++)
 
-Practicing basic OOP and operator overloading in C++ writing a few classes usefull in maths.
+A few classes usefull in maths : basic functions, rational numbers, time.
 
   - [x] Time
-  - [x] Rational _(some functionnalities rely on the basic-functions.h header)_
+  - [x] Rational & Basic
   - [ ] Complex
