@@ -1,15 +1,17 @@
-int abs(int n) {
+#include "basic-functions.h"
+
+int Basic::abs(const int &n) {
     return(n > 0 ? n : n * (-1));
 }
 
-int gcd(int a, int b) {
+int Basic::gcd(int a, int b) {
     return(b ? gcd(b, a % b) : a);
 }
 
-int max(const int &a, const int &b) {
+int Basic::max(const int &a, const int &b) {
     return(a > b ? a : b);
 }
 
-int min(const int &a, const int &b) {
+int Basic::min(const int &a, const int &b) {
     return(a > b ? b : a);
 }

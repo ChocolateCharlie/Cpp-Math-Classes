@@ -110,7 +110,8 @@ void Rational::to_canonical() {
         m_denominator *= -1;
     }
     // Simplify by the greatest common divisor
-    int d = gcd(max(abs(m_numerator), m_denominator), min(abs(m_numerator), m_denominator));
+    int d = Basic::gcd(Basic::max(Basic::abs(m_numerator), m_denominator),
+                       Basic::min(Basic::abs(m_numerator), m_denominator));
     m_numerator /= d;
     m_denominator /= d;
 }
