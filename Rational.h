@@ -44,7 +44,6 @@ class Rational {
     friend bool operator>=(const Rational &r, const int &n);
     friend bool operator>=(const Rational &a, const Rational &b);
     friend std::ostream& operator<<(std::ostream &stream, const Rational &r);
-
 };
 
 Rational operator+(const Rational &r, const int &n);
