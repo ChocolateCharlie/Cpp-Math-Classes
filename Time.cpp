@@ -14,7 +14,6 @@ Time& Time::operator+=(const Time &t) {
     m_minutes += t.m_minutes;
     m_hours += t.m_hours;
     make_valid();
-
     return(*this);
 }
 
@@ -23,7 +22,6 @@ Time& Time::operator-=(const Time &t) {
     m_minutes -= t.m_minutes;
     m_hours -= t.m_hours;
     make_valid();
-
     return(*this);
 }
 
@@ -32,7 +30,6 @@ Time& Time::operator*=(const int &n) {
     m_minutes *= n;
     m_hours *= n;
     make_valid();
-
     return(*this);
 }
 
@@ -41,7 +38,6 @@ Time& Time::operator/=(const int &n) {
     m_minutes /= n;
     m_hours /= n;
     make_valid();
-
     return(*this);
 }
 
@@ -50,7 +46,6 @@ Time& Time::operator%=(const int &n) {
     m_minutes %= n;
     m_hours %= n;
     make_valid();
-
     return(*this);
 }
 
