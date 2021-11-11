@@ -38,9 +38,9 @@ class Time {
 		friend std::ostream& operator<<(std::ostream &stream, const Time &t);
 		*/
 };
-
+/*
 Time operator+(const Time &a, const Time &b);
 Time operator-(const Time &a, const Time &b);
-
+*/
 #endif	// TIME_H_INCLUDED
 
