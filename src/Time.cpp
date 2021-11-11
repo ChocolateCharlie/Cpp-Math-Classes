@@ -3,17 +3,20 @@
 /* By: ChocolateCharlie                                                      */
 /* Updated: 2021-11-11                                                       */
 /* ************************************************************************* */
-#include <iomanip>
-#include <iostream>
-
 #include "Time.h"
 
+/* ************************************************************************* */
+/*                              PUBLIC METHODS                               */
+/* ************************************************************************* */
 // CONSTRUCTOR
-/*
-Time::Time(int hours, int minutes, int seconds) : m_hours(hours), m_minutes(minutes), m_seconds(seconds) {
-	make_valid();
+Time::Time(const int &hours, const int &minutes, const int &seconds) : m_hours(hours), m_minutes(minutes), m_seconds(seconds) {
+	// make_valid();
 }
-*/
+
+// ACCESSORS
+int Time::get_hours() const	{ return(m_hours); }
+int Time::get_minutes() const	{ return(m_minutes); }
+int Time::get_seconds() const	{ return(m_seconds); }
 
 // OPERATOR METHODS
 /*
